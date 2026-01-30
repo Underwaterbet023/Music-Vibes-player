@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Vibes Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="MUSIC STUDIO 1.png" type="image/x-icon">
+  </head>
+  <body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <img src="logo.png" alt="Music Vibes Logo">
+            </div>
+            <h1>Music Vibes</h1>
+            <p>Your rhythm, your vibe, your music.</p>
+            <button id="get-started-btn">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Background Video -->
+    <div class="video-container">
+      <video id="bg-video" autoplay muted loop playsinline></video>
+      <div class="overlay"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Sidebar / Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Music Studio 1">
+                <span>Music Vibes</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" id="nav-home"><i class="fas fa-home"></i> Home</li>
+                    <li id="nav-liked"><i class="fas fa-heart"></i> Liked Songs</li>
+                    <li id="nav-search-container">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="song-search" placeholder="Search songs...">
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="playlist-section">
+                <h3>Playlists <button id="create-playlist-btn"><i class="fas fa-plus"></i></button></h3>
+                <ul id="playlist-list">
+                    <!-- Playlists injected here -->
+                </ul>
+            </div>
+        </aside>
+        
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main View -->
+        <main class="main-view">
+            <header>
+            <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="header-content">
+                <h1 id="view-title">All Songs</h1>
+                <div class="header-actions">
+                    <button id="header-play-btn" class="header-play-btn"><i class="fas fa-play"></i></button>
+                    <button id="header-shuffle-btn" class="header-shuffle-btn" title="Shuffle Play"><i class="fas fa-random"></i></button>
+                </div>
+            </div>
+        </header>
+            <div class="song-list" id="song-list">
+                <!-- Songs will be injected here -->
+                <div class="loading">Loading songs...</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player-bar">
+        <div class="song-info" id="mini-player-info">
+            <div class="cover-art"><i class="fas fa-music"></i></div>
+            <div class="details">
+                <span id="current-title">Select a song</span>
+                <span id="current-artist">--</span>
+            </div>
+            <button id="like-btn" class="like-btn"><i class="far fa-heart"></i></button>
+        </div>
+        
+        <div class="controls-container">
+            <div class="controls">
+                <button id="shuffle-btn"><i class="fas fa-random"></i></button>
+                <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button id="play-btn" class="play-pause"><i class="fas fa-play"></i></button>
+                <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+                <button id="repeat-btn"><i class="fas fa-redo"></i></button>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="seek-bar" value="0" min="0" max="100">
+                <span id="total-duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volume-bar" value="80" min="0" max="100">
+            <button id="expand-btn"><i class="fas fa-expand-alt"></i></button>
+        </div>
+    </div>
+
+    <!-- Full Screen Player -->
+    <!-- Full Screen Player -->
+    <div id="full-screen-player" class="full-screen-player hidden">
+        <p class="fs-tagline">Music Vibes is Playing</p>
+        <button id="close-fs-btn" class="close-btn"><i class="fas fa-times"></i></button>
+        
+        <div class="fs-main-layout">
+            <!-- Left Side: Now Playing -->
+            <div class="fs-now-playing">
+                <div class="album-art-large">
+                    <img src="logo.png" alt="Album Art" id="fs-art">
+                </div>
+                
+                <div class="fs-info-actions">
+                    <div class="fs-details">
+                        <h2 id="fs-title">Song Title</h2>
+                        <p id="fs-artist">Artist</p>
+                    </div>
+                    <div class="fs-quick-actions">
+                        <button id="fs-like-btn" class="like-btn"><i class="far fa-heart"></i></button>
+                        <button id="fs-add-pl-btn" class="add-pl-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="progress-container fs-progress">
+                    <span id="fs-current-time">0:00</span>
+                    <input type="range" id="fs-seek-bar" value="0" min="0" max="100">
+                    <span id="fs-total-duration">0:00</span>
+                </div>
+
+                <div class="fs-controls">
+                     <button id="fs-shuffle-btn"><i class="fas fa-random"></i></button>
+                     <button id="fs-prev-btn"><i class="fas fa-step-backward"></i></button>
+                     <button id="fs-play-btn" class="play-pause-lg"><i class="fas fa-play"></i></button>
+                     <button id="fs-next-btn"><i class="fas fa-step-forward"></i></button>
+                     <button id="fs-repeat-btn"><i class="fas fa-redo"></i></button>
+                </div>
+                
+                <div class="fs-volume">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="fs-volume-bar" value="80" min="0" max="100">
+                </div>
+            </div>
+
+            <!-- Right Side: Queue -->
+            <div class="fs-queue-section">
+                <h3>Up Next</h3>
+                <ul id="fs-queue-list">
+                    <!-- Queue Items -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="create-playlist-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>New Playlist</h3>
+            <input type="text" id="new-playlist-name" placeholder="Playlist Name">
+            <div class="modal-actions">
+                <button id="cancel-create-pl">Cancel</button>
+                <button id="confirm-create-pl">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-to-playlist-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Add to Playlist</h3>
+            <ul id="modal-playlist-list"></ul>
+            <button id="close-add-pl">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
