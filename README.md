@@ -15,7 +15,7 @@
 ![image alt](https://github.com/Underwaterbet023/Music-Vibes-player/blob/main/Screenshot%202026-01-31%20003501.png)
 
 ---
-## 🌟 Features
+## 🌟 Features:
 
 ### 🎬 Welcome / Intro Screen
 - Premium welcome screen with logo, tagline, and **Get Started** button  
