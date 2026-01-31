@@ -8,11 +8,11 @@
 [🎵 View Project Online](https://music-vibes-player-git-main-sanskar-kumars-projects-46a865a6.vercel.app/)
 
 ---
-![image alt](https://github.com/Underwaterbet023/Music-Vibes/blob/main/Screenshot%202026-01-31%20003427.png)
+![image alt](https://github.com/Underwaterbet023/Music-Vibes-player/blob/main/Screenshot%202026-01-31%20003427.png)
 
 ---
 ---
-![image alt](https://github.com/Underwaterbet023/Music-Vibes/blob/main/Screenshot%202026-01-31%20003501.png)
+![image alt](https://github.com/Underwaterbet023/Music-Vibes-player/blob/main/Screenshot%202026-01-31%20003501.png)
 
 ---
 ## 🌟 Features
